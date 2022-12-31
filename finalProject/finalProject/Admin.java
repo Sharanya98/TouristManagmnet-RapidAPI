@@ -92,9 +92,7 @@ class Admin implements Users {
                     flag = false;
                 }
             }
-
             if(flag){
-
                 System.out.println("No data fount");
                 allOperation();
             }
@@ -104,8 +102,6 @@ class Admin implements Users {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
 
@@ -148,20 +144,17 @@ class Admin implements Users {
                 sc.nextLine();
                 String answer = sc.nextLine();
                 deleteData(FILE_PATH,answer);
-
+                allOperation();
                 break;
-
             case 3:
              Users.readData(FILE_PATH);
                allOperation();
                 break;
-
             case 4:
                 break;
             default:
                 System.out.println("Wrong Input");
         }
     }
-
 
 }

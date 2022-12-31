@@ -40,7 +40,7 @@ public class UserMain {
                 switch(type){
                     case 1:
 
-//                        Logging process
+                        //Logging process
                         System.out.println("Choose id(4 digit between[0-9])");
                         int new_id = sc.nextInt();
                         sc.nextLine();
@@ -54,8 +54,6 @@ public class UserMain {
                 break;
             default:
                 System.out.println("Wrong Input");
-
-
         }
     }
 }

@@ -25,12 +25,12 @@ public interface Users {
 
             // display Data
             System.out.println("---------------------------------------------------------------------------------------------");
-            System.out.printf("%10s %10s %10s %10s", "DESTINATION", "DISTANCE", "COST", "RATING");
-            System.out.print("\n");
+            System.out.printf("%10s %10s %8s %10s", "DESTINATION", "DISTANCE", "COST", "RATING");
+            System.out.println();
 
             for (String[] row : Data) {
                 for (String cell : row) {
-                    System.out.print(cell + "\t\t\t  ");
+                    System.out.format("| %8s",cell );
                 }
                 System.out.println();
             }

@@ -34,20 +34,13 @@ class Tourist implements Users {
         byte operation = sc.nextByte();
         switch (operation) {
             case 1:
-
                 Users.readData(FILE_PATH);
                 operation();
                 break;
             case 2:
                 compareChart();
-
                 break;
-
             case 3:
-//
-                break;
-
-            case 6:
                 break;
             default:
                 System.out.println("Wrong Input");
@@ -63,7 +56,6 @@ class Tourist implements Users {
     public void getDetailsfromAPI() {
 
         Scanner sc = new Scanner(System.in);
-
         System.out.println("choose country");
         String fcountry = sc.nextLine();
         fcountry = fcountry.replace(" ", "%20");
@@ -71,25 +63,22 @@ class Tourist implements Users {
         String fcity = sc.nextLine();
         fcity =fcity.replace(" ", "%20");
 
-
         try {
 
-//            getting resonse from rapidAPI URL
+            //firing the get request from RAPID API
             HttpResponse<JsonNode> response = Unirest.get("https://cost-of-living-and-prices.p.rapidapi.com/prices?city_name="+fcity+"&country_name="+fcountry+"")
                     .header("X-RapidAPI-Key", "85d3ffcbc8msh3caab9f2aa2545fp130091jsn6e0ab5b574c0")
+                    .header("X-RapidAPI-Host", "cost-of-living-and-prices.p.rapidapi.com")
                     .queryString("parameter", "value")
                     .asJson();
 
-// converting response in to JSON objct
+            // converting response in to JSON object
             JsonNode ret = response.getBody();
 
-
-            System.out.println(ret.getObject().names());
             JSONObject obj = ret.getObject();
             Iterator<Object> iterator = obj.getJSONArray("prices").iterator();
             org.json.JSONObject data = (JSONObject) iterator.next();
             System.out.println("Country Name :" +obj.getString("country_name"));
-            System.out.println("City Name :" + obj.getString("city_name"));
             System.out.println("City Name :" + obj.getString("city_name"));
             System.out.println("Currency Code :" + data.get("currency_code"));
             System.out.println("---------------------------------------------------------------------------------------------");
